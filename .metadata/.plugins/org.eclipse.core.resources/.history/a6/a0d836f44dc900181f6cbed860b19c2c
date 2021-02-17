@@ -1,0 +1,8 @@
+/*
+ * APP.c
+ *
+ *  Created on: 6 Oct 2018
+ *      Author: musta
+ */
+#include "MCAL/DIO.h"
+

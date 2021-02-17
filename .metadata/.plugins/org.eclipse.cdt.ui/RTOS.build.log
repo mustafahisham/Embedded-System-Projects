@@ -1,0 +1,27 @@
+14:04:41 **** Incremental Build of configuration Debug for project RTOS ****
+make all 
+Building file: ../TIMER0.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"TIMER0.d" -MT"TIMER0.o" -c -o "TIMER0.o" "../TIMER0.c"
+In file included from ../TIMER0.h:11,
+                 from ../TIMER0.c:10:
+../typed.h:3: error: redefinition of typedef 'u8'
+../typed.h:3: error: previous declaration of 'u8' was here
+../typed.h:4: error: redefinition of typedef 'u16'
+../typed.h:4: error: previous declaration of 'u16' was here
+../typed.h:5: error: redefinition of typedef 'u32'
+../typed.h:5: error: previous declaration of 'u32' was here
+../typed.h:6: error: redefinition of typedef 's8'
+../typed.h:6: error: previous declaration of 's8' was here
+../typed.h:7: error: redefinition of typedef 's16'
+../typed.h:7: error: previous declaration of 's16' was here
+../typed.h:8: error: redefinition of typedef 's32'
+../typed.h:8: error: previous declaration of 's32' was here
+../typed.h:9: error: redefinition of typedef 'f32'
+../typed.h:9: error: previous declaration of 'f32' was here
+../typed.h:10: error: redefinition of typedef 'f64'
+../typed.h:10: error: previous declaration of 'f64' was here
+make: *** [TIMER0.o] Error 1
+
+14:04:41 Build Finished (took 232ms)
+

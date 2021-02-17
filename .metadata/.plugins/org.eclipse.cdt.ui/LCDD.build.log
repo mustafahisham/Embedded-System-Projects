@@ -1,0 +1,20 @@
+19:29:51 **** Incremental Build of configuration Release for project LCDD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 LCDD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1322 bytes (4.0% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:29:51 Build Finished (took 172ms)
+

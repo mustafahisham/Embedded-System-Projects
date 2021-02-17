@@ -1,0 +1,66 @@
+09:46:43 **** Incremental Build of configuration Release for project MASTER_SLAVE ****
+make all 
+Building file: ../MCAL/DIO/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"MCAL/DIO/DIO.d" -MT"MCAL/DIO/DIO.o" -c -o "MCAL/DIO/DIO.o" "../MCAL/DIO/DIO.c"
+../MCAL/DIO/DIO.c: In function 'DIO_u8GetPinaValue':
+../MCAL/DIO/DIO.c:215: warning: 'value' may be used uninitialized in this function
+Finished building: ../MCAL/DIO/DIO.c
+ 
+Building file: ../MCAL/Master_Slave.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"MCAL/Master_Slave.d" -MT"MCAL/Master_Slave.o" -c -o "MCAL/Master_Slave.o" "../MCAL/Master_Slave.c"
+Finished building: ../MCAL/Master_Slave.c
+ 
+Building file: ../HAL/LCD.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"HAL/LCD.d" -MT"HAL/LCD.o" -c -o "HAL/LCD.o" "../HAL/LCD.c"
+In file included from ../HAL/LCD.c:14:
+d:/imt eclips/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+Finished building: ../HAL/LCD.c
+ 
+Building file: ../app.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"app.d" -MT"app.o" -c -o "app.o" "../app.c"
+In file included from ../app.c:13:
+d:/imt eclips/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+../app.c:15: warning: return type of 'main' is not 'int'
+../app.c: In function 'main':
+../app.c:23: warning: implicit declaration of function 'LCD_vidInit'
+Finished building: ../app.c
+ 
+Building target: MASTER_SLAVE.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MASTER_SLAVE.map -mmcu=atmega32 -o "MASTER_SLAVE.elf"  ./MCAL/DIO/DIO.o  ./MCAL/Master_Slave.o  ./HAL/LCD.o  ./app.o   
+Finished building target: MASTER_SLAVE.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MASTER_SLAVE.elf  >"MASTER_SLAVE.lss"
+Finished building: MASTER_SLAVE.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MASTER_SLAVE.elf  "MASTER_SLAVE.hex"
+Finished building: MASTER_SLAVE.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex MASTER_SLAVE.elf  "MASTER_SLAVE.eep"
+Finished building: MASTER_SLAVE.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 MASTER_SLAVE.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1378 bytes (4.2% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+09:46:45 Build Finished (took 1s.423ms)
+

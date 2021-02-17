@@ -1,0 +1,10 @@
+23:04:43 **** Incremental Build of configuration Release for project UART_blue ****
+make all 
+Building file: ../UART.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1600000UL -MMD -MP -MF"UART.d" -MT"UART.o" -c -o "UART.o" "../UART.c"
+In file included from ../UART.c:2:
+../UART_LOC.h:8:1: error: unterminated #ifndef
+../UART.c: In function 'UART_Reciver':
+../UART.c:32: warning: 'return' with a value, in function returning void
+make: *** [UART.o] Error 1

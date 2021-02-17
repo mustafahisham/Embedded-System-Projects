@@ -1,0 +1,15 @@
+11:01:29 **** Incremental Build of configuration Debug for project IIC ****
+make all 
+Building file: ../MCAL/IIC.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"MCAL/IIC.d" -MT"MCAL/IIC.o" -c -o "MCAL/IIC.o" "../MCAL/IIC.c"
+Finished building: ../MCAL/IIC.c
+ 
+Building target: IIC.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,IIC.map -mmcu=atmega32 -o "IIC.elf"  ./MCAL/DIO/DIO.o  ./MCAL/IIC.o   
+d:/imt eclips/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o:(.init9+0x0): undefined reference to `main'
+make: *** [IIC.elf] Error 1
+
+11:01:29 Build Finished (took 296ms)
+

@@ -1,0 +1,56 @@
+20:37:01 **** Build of configuration Release for project TEMP ****
+make all 
+Building file: ../MCAL/DIO/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"MCAL/DIO/DIO.d" -MT"MCAL/DIO/DIO.o" -c -o "MCAL/DIO/DIO.o" "../MCAL/DIO/DIO.c"
+../MCAL/DIO/DIO.c: In function 'DIO_u8GetPinaValue':
+../MCAL/DIO/DIO.c:215: warning: 'value' may be used uninitialized in this function
+Finished building: ../MCAL/DIO/DIO.c
+ 
+Building file: ../MCAL/ADC/ADC.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"MCAL/ADC/ADC.d" -MT"MCAL/ADC/ADC.o" -c -o "MCAL/ADC/ADC.o" "../MCAL/ADC/ADC.c"
+Finished building: ../MCAL/ADC/ADC.c
+ 
+Building file: ../HAL/LCD.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"HAL/LCD.d" -MT"HAL/LCD.o" -c -o "HAL/LCD.o" "../HAL/LCD.c"
+In file included from ../HAL/LCD.c:14:
+d:/imt eclips/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+Finished building: ../HAL/LCD.c
+ 
+Building target: TEMP.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TEMP.map -mmcu=atmega32 -o "TEMP.elf"  ./MCAL/DIO/DIO.o  ./MCAL/ADC/ADC.o  ./HAL/LCD.o  ./app.o   
+Finished building target: TEMP.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TEMP.elf  >"TEMP.lss"
+Finished building: TEMP.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TEMP.elf  "TEMP.hex"
+Finished building: TEMP.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex TEMP.elf  "TEMP.eep"
+Finished building: TEMP.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TEMP.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1332 bytes (4.1% Full)
+(.text + .data + .bootloader)
+
+Data:          6 bytes (0.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:37:04 Build Finished (took 2s.957ms)
+

@@ -1,0 +1,45 @@
+09:28:09 **** Incremental Build of configuration Release for project BANK ****
+make all 
+Building file: ../APP.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"APP.d" -MT"APP.o" -c -o "APP.o" "../APP.c"
+../APP.c:18: warning: return type of 'main' is not 'int'
+../APP.c: In function 'main':
+../APP.c:24: warning: implicit declaration of function 'LCD_vidInit'
+Finished building: ../APP.c
+ 
+Building target: BANK.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,BANK.map -mmcu=atmega32 -o "BANK.elf"  ./MCAL/DIO.o  ./HAL/KeyPad/keypad.o  ./HAL/LCD.o  ./APP.o   
+Finished building target: BANK.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S BANK.elf  >"BANK.lss"
+Finished building: BANK.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex BANK.elf  "BANK.hex"
+Finished building: BANK.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex BANK.elf  "BANK.eep"
+Finished building: BANK.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 BANK.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1510 bytes (4.6% Full)
+(.text + .data + .bootloader)
+
+Data:         20 bytes (1.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+09:28:10 Build Finished (took 1s.211ms)
+

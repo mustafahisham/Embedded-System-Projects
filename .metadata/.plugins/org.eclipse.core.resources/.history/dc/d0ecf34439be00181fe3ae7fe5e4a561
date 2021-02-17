@@ -1,0 +1,37 @@
+#include "typed.h"
+#include "MCAL/ADC/ADC.h"
+#include "MCAL/DIO/DIO.h"
+#include "HAL/LCD.h"
+
+
+void main ()
+{ 	DIO_vidSetPortDir(PORTD,PORTDIR_OUTPUT) ;
+    DIO_vidSetPortDir(PORTC, 0XFF);
+	ADC_vidinit() ;
+	LCD_vidInit() ;
+    u16 data ;
+
+	while (1)
+
+	{
+		ADC_vidstartConv();
+		data= ADC_u16GetData();
+		LCD_vidWriteStr(data,2);
+//
+//		 if (data < 19)
+//		 {
+//		  DIO_vidSetPortVal(PORTD,0b00000001);
+//		 }
+//		 if (data > 19 && data < 25)
+//				 {
+//			 DIO_vidSetPortVal(PORTD,0b00000010);
+//				 }
+//		 if (data > 25)
+//				 {
+//			 DIO_vidSetPortVal (PORTD,0b00000100);
+//				 }
+
+
+
+	}
+}

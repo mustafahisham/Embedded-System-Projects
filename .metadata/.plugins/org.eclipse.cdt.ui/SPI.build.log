@@ -1,0 +1,20 @@
+13:36:13 **** Incremental Build of configuration Release for project SPI ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SPI.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     934 bytes (2.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:36:13 Build Finished (took 193ms)
+

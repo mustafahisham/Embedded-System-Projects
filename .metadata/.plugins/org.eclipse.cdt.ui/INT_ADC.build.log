@@ -1,0 +1,48 @@
+11:14:04 **** Incremental Build of configuration Release for project INT_ADC ****
+make all 
+Building file: ../MCAL/ADC.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"MCAL/ADC.d" -MT"MCAL/ADC.o" -c -o "MCAL/ADC.o" "../MCAL/ADC.c"
+Finished building: ../MCAL/ADC.c
+ 
+Building file: ../app.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"app.d" -MT"app.o" -c -o "app.o" "../app.c"
+../app.c:6: warning: return type of 'main' is not 'int'
+Finished building: ../app.c
+ 
+Building target: INT_ADC.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,INT_ADC.map -mmcu=atmega32 -o "INT_ADC.elf"  ./MCAL/ADC.o ./MCAL/DIO.o  ./app.o   
+Finished building target: INT_ADC.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S INT_ADC.elf  >"INT_ADC.lss"
+Finished building: INT_ADC.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex INT_ADC.elf  "INT_ADC.hex"
+Finished building: INT_ADC.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex INT_ADC.elf  "INT_ADC.eep"
+Finished building: INT_ADC.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 INT_ADC.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4310 bytes (13.2% Full)
+(.text + .data + .bootloader)
+
+Data:        264 bytes (12.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+11:14:05 Build Finished (took 1s.218ms)
+

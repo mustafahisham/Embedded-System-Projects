@@ -1,0 +1,59 @@
+11:50:26 **** Incremental Build of configuration Release for project Servo ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_u8GetPinaValue':
+../MCAL/DIO.c:215: warning: 'value' may be used uninitialized in this function
+Finished building: ../MCAL/DIO.c
+ 
+Building file: ../MCAL/TIMER1.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"MCAL/TIMER1.d" -MT"MCAL/TIMER1.o" -c -o "MCAL/TIMER1.o" "../MCAL/TIMER1.c"
+Finished building: ../MCAL/TIMER1.c
+ 
+Building file: ../APP.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"APP.d" -MT"APP.o" -c -o "APP.o" "../APP.c"
+../APP.c:8:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../APP.c:12:
+d:/imt eclips/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+../APP.c:15: warning: return type of 'main' is not 'int'
+Finished building: ../APP.c
+ 
+Building target: Servo.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Servo.map -mmcu=atmega32 -o "Servo.elf"  ./MCAL/DIO.o ./MCAL/TIMER1.o  ./APP.o   
+Finished building target: Servo.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Servo.elf  >"Servo.lss"
+Finished building: Servo.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Servo.elf  "Servo.hex"
+Finished building: Servo.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Servo.elf  "Servo.eep"
+Finished building: Servo.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Servo.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     834 bytes (2.5% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+11:50:27 Build Finished (took 947ms)
+

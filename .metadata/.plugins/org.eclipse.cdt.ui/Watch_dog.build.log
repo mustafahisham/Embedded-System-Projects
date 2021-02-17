@@ -1,0 +1,47 @@
+10:28:39 **** Incremental Build of configuration Release for project Watch_dog ****
+make all 
+Building file: ../App.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"App.d" -MT"App.o" -c -o "App.o" "../App.c"
+In file included from ../App.c:10:
+d:/imt eclips/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+../App.c:17: warning: return type of 'main' is not 'int'
+../App.c: In function 'main':
+../App.c:18: warning: type of 'main' defaults to 'int'
+Finished building: ../App.c
+ 
+Building target: Watch_dog.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Watch_dog.map -mmcu=atmega32 -o "Watch_dog.elf"  ./MCAL/DIO.o  ./App.o   
+Finished building target: Watch_dog.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Watch_dog.elf  >"Watch_dog.lss"
+Finished building: Watch_dog.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Watch_dog.elf  "Watch_dog.hex"
+Finished building: Watch_dog.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Watch_dog.elf  "Watch_dog.eep"
+Finished building: Watch_dog.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Watch_dog.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     798 bytes (2.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+10:28:39 Build Finished (took 685ms)
+
